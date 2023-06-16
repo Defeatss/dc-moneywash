@@ -47,7 +47,7 @@ end
 
 -- ########## Callbacks ########## --
 
-QBCore.Functions.CreateCallback('nc-moneywash:server:pedcoords', function(source, cb)
+QBCore.Functions.CreateCallback('dc-moneywash:server:pedcoords', function(source, cb)
     local r = math.random(1,#hiddenped["coords"])
     for _,v in pairs(hiddenped) do
         pedloc = v[r]
@@ -57,7 +57,7 @@ end)
 
 -- ########## Events ########## --
 
-RegisterNetEvent("nc-moneywash:server:sellthem",function(amount)
+RegisterNetEvent("dc-moneywash:server:sellthem",function(amount)
     local Player = QBCore.Functions.GetPlayer(source)
     local TotalAmount = tonumber(amount)
     if Config.BlackMoneyName == "markedbills" then
