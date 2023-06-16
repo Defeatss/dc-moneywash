@@ -1,5 +1,5 @@
 fx_version 'cerulean'
-author "Shay BBX#1918"
+author "Defeatss"
 version "V1.1"
 description "Money Washing Script"
 game "gta5"
