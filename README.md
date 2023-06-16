@@ -9,4 +9,4 @@ For help, questions and other free scripts join us in discord: https://discord.g
 - Availability to open it with an item
 - Configurable percentage to give back. You can keep 30% and give 70% legal money back.
 
-Test
+Tes
