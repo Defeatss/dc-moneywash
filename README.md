@@ -1,4 +1,4 @@
-### nc-moneywash
+### dc-moneywash
 
 Wash your black money and turn it into legal money.
 
