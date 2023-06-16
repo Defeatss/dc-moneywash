@@ -14,7 +14,7 @@ Citizen.CreateThread(function()
 		RequestAnimDict(baganimDict)
 		Citizen.Wait(100)
 	end
-	QBCore.Functions.TriggerCallback('nc-moneywash:server:pedcoords', function(pedloc)
+	QBCore.Functions.TriggerCallback('dc-moneywash:server:pedcoords', function(pedloc)
 		RequestModel(Config.pedmodel) while not HasModelLoaded(Config.pedmodel) do Citizen.Wait(1) end
 		pedman = CreatePed(0, Config.pedmodel , pedloc.x, pedloc.y, pedloc.z, pedloc.w, false, false)
 		SetEntityInvincible(pedman, true)
@@ -39,17 +39,17 @@ Citizen.CreateThread(function()
 	end)
 end)
 
-RegisterNetEvent("nc-moneywash:client:ShowMenu", function()
+RegisterNetEvent("dc-moneywash:client:ShowMenu", function()
     local MoneyMenu = {}
     MoneyMenu[#MoneyMenu+1] = { header = "Washing Menu", txt = "", isMenuHeader = true }
-    MoneyMenu[#MoneyMenu+1] = { icon = "fas fa-circle-xmark", header = "", txt = "Close", params = { event = "nc-moneywash:client:Menu:Close" } }
+    MoneyMenu[#MoneyMenu+1] = { icon = "fas fa-circle-xmark", header = "", txt = "Close", params = { event = "dc-moneywash:client:Menu:Close" } }
 
-    MoneyMenu[#MoneyMenu+1] = { header = "Wash Black Money", txt = "Wash black money and receive legal money" ,params = { event = "nc-moneywash:client:WashInput",}}
+    MoneyMenu[#MoneyMenu+1] = { header = "Wash Black Money", txt = "Wash black money and receive legal money" ,params = { event = "dc-moneywash:client:WashInput",}}
 
     exports['qb-menu']:openMenu(MoneyMenu)
 end)
 
-RegisterNetEvent("nc-moneywash:client:WashInput", function()
+RegisterNetEvent("dc-moneywash:client:WashInput", function()
     local header = "<center><p><img src=nui://"..Config.img..QBCore.Shared.Items[Config.BlackMoneyName].image.." width=100px></p>"..QBCore.Shared.Items[Config.BlackMoneyName].label
 	local settext = "- How much ? -"
 	local NewInput = {}
@@ -57,7 +57,7 @@ RegisterNetEvent("nc-moneywash:client:WashInput", function()
 	local dialog = exports['qb-input']:ShowInput({ header = header, submitText = "Change", inputs = NewInput })
 	if dialog then
 		if tonumber(dialog.amount) >= 0 then
-			TriggerServerEvent("nc-moneywash:server:sellthem", dialog.amount)
+			TriggerServerEvent("dc-moneywash:server:sellthem", dialog.amount)
 		else
 			QBCore.Functions.Notify("Value must be higher then 0", "error")
 		end
